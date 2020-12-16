@@ -1,14 +1,31 @@
 # sbt-zip-client
 
-## This prototype demonstrates three build configuration tasks
+## This prototype demonstrates four sbt build configuration tasks
 
-1. Create and run a local build task (localTask)
+1. Create and run a local build task to copy files (localTask)
 2. Create and run a local build task which calls a function on a library dependency to modify a file (libTask)
-3. Reference and run a task on an sbt plugin to modify a file (pluginTask)
+3. Reference and run a task on an sbt plugin to call the same library dependency to modify a file (pluginLibTask)
+4. Reference and run a task on an sbt plugin to zip a folder (pluginZipTask)
 
-The tasks are configured, in build.sbt, to run sequentially to simulate the movement and modification of a data file in production build process
+The tasks are configured, in build.sbt, to run sequentially to simulate the movement and modification of a data file in a production build process
 
-##  Software Versions
+## The projects
+
+Three projects are use to configure the prototype
+
+## sbt-zip-app 
+
+Acts as the library dependency containg functions and processes to be called from the client app during the build
+
+## sbt-zip-plugin 
+
+Is the sbt plugin
+
+## sbt-zip-client 
+
+Uses the two dependency projects to demonstrate possible production configurations
+
+##  Installed Software Versions
 
 ### SBT
 
@@ -34,9 +51,11 @@ Java(TM) SE Runtime Environment (build 15.0.1+9-18)
 Java HotSpot(TM) 64-Bit Server VM (build 15.0.1+9-18, mixed mode, sharing)
 ```
 
-## Build and Publish the sbt-zip-client Dependencies
+# Build and Publish the sbt-zip-client Dependencies
 
-### Clone all three projects
+__Note that the projects must be published in the order presented__
+
+Clone all three projects
 
 1. sbt-zip-app
 2. sbt-zip-plugin
@@ -159,16 +178,17 @@ sbt:sbt-zip-client> compile
 
 ```
 sbt:sbt-zip-client> runTasks
-Local Task...
-
-Lib Task...
-file size before: 66
-libFileAppendFunction called
-files: 1
-filesize after: 70
-
-Zipping file...
-[success] Total time: 0 s, completed Dec 16, 2020, 11:23:18 AM
+localTask...
+libTask...
+file size before: 10
+libFileAppendFunction called with: Client
+filesize after: 17
+pluginLibTask...
+file size before: 17
+libFileAppendFunction called with: Plugin
+filesize after: 24
+pluginZipTask...
+[success] Total time: 0 s, completed Dec 16, 2020, 5:33:39 PM
 sbt:sbt-zip-client>
 ```
 
