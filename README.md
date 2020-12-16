@@ -1,8 +1,10 @@
-# The sbt-zip-client prototype demonstrates three sbt build configurations
+# sbt-zip-client
+
+## This prototype demonstrates three sbt build configurations
 
 1. Create and run a local build task
-2. Create and run a local build task which calls a function on a library dependency
-3. Reference and run a task on an sbt plugin
+2. Create and run a local build task which calls a function on a library dependency to modify a file
+3. Reference and run a task on an sbt plugin to modify a file
 
 ##  Versions - SBT Scala Java
 
@@ -18,15 +20,17 @@ java version "15.0.1" 2020-10-20
 Java(TM) SE Runtime Environment (build 15.0.1+9-18)
 Java HotSpot(TM) 64-Bit Server VM (build 15.0.1+9-18, mixed mode, sharing)
 
-# Build and Publish the sbt-zip-client Dependencies
+## Build and Publish the sbt-zip-client Dependencies
 
-## Clone all three projects
+### Clone all three projects
 
 1. sbt-zip-app
 2. sbt-zip-plugin
 3. sbt-zip-client
 
-### sbt-zip-app - Enter the sbt shell
+## sbt-zip-app
+
+### Enter the sbt shell
 
 ```
 C:\Home\git\sbt-zip-app>sbt
@@ -66,7 +70,9 @@ model contains 6 documentable templates
 sbt:sbt-zip-app>
 ```
 
-### sbt-zip-plugin - Enter the sbt shell
+## sbt-zip-plugin
+
+### Enter the sbt shell
 
 ```
 C:\Home\git\sbt-zip-plugin>sbt
@@ -112,9 +118,9 @@ C:\Users\...\.ivy2\local\com.demo.app
 /sbt-zip-plugin
 ```
 
-# Compile the sbt-zip-client
+## sbt-zip-client
 
-### sbt-zip-client - Enter the sbt shell
+### Enter the sbt shell
 
 ```
 C:\Home\git\sbt-zip-client>sbt
@@ -132,16 +138,25 @@ C:\Home\git\sbt-zip-client>sbt
 
 ```
 sbt:sbt-zip-client> compile
-Zipping file...
-libFunction called
-Local Task Complete
-[success] Total time: 0 s, completed Dec 15, 2020, 1:21:27 PM
-sbt:sbt-zip-client>
+[success] Total time: 0 s, completed Dec 16, 2020, 11:18:12 AM
 ```
 
+### runTasks
 
+```
+sbt:sbt-zip-client> runTasks
+Local Task...
 
+Lib Task...
+file size before: 66
+libFileAppendFunction called
+files: 1
+filesize after: 70
 
+Zipping file...
+[success] Total time: 0 s, completed Dec 16, 2020, 11:23:18 AM
+sbt:sbt-zip-client>
+```
 
 
 
