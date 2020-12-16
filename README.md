@@ -12,21 +12,27 @@ The tasks are configured, in build.sbt, to run sequentially to simulate the move
 
 ### SBT
 
+```
 C:\Home\git>sbt -version
 sbt version in this project: 1.4.1
 sbt script version: 1.4.4
+```
 
 ### Scala
 
+```
 C:\Home\git>sbt scalaVersion
 2.12.11
+```
 
 ### Java
 
+```
 C:\Home\git>java -version
 java version "15.0.1" 2020-10-20
 Java(TM) SE Runtime Environment (build 15.0.1+9-18)
 Java HotSpot(TM) 64-Bit Server VM (build 15.0.1+9-18, mixed mode, sharing)
+```
 
 ## Build and Publish the sbt-zip-client Dependencies
 
