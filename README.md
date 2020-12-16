@@ -1,19 +1,27 @@
 # sbt-zip-client
 
-## This prototype demonstrates three sbt build configurations
+## This prototype demonstrates three build configuration tasks
 
-1. Create and run a local build task
-2. Create and run a local build task which calls a function on a library dependency to modify a file
-3. Reference and run a task on an sbt plugin to modify a file
+1. Create and run a local build task (localTask)
+2. Create and run a local build task which calls a function on a library dependency to modify a file (libTask)
+3. Reference and run a task on an sbt plugin to modify a file (pluginTask)
 
-##  Versions - SBT Scala Java
+The tasks are configured, in build.sbt, to run sequentially to simulate the movement and modification of a data file in production build process
+
+##  Software Versions
+
+### SBT
 
 C:\Home\git>sbt -version
 sbt version in this project: 1.4.1
 sbt script version: 1.4.4
 
+### Scala
+
 C:\Home\git>sbt scalaVersion
 2.12.11
+
+### Java
 
 C:\Home\git>java -version
 java version "15.0.1" 2020-10-20
@@ -51,7 +59,7 @@ sbt:sbt-zip-app> compile
 [success] Total time: 0 s, completed Dec 15, 2020, 1:07:55 PM
 ```
 
-### Publish
+### Publish Locally
 
 ```
 sbt:sbt-zip-app> publishLocal
@@ -93,7 +101,7 @@ sbt:sbt-zip-plugin> compile
 [success] Total time: 0 s, completed Dec 15, 2020, 1:15:19 PM
 ```
 
-### Publish
+### Publish Locally
 
 ```
 sbt:sbt-zip-plugin> publishLocal
